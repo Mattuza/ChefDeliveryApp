@@ -1,0 +1,34 @@
+import SwiftUI
+
+struct StoresItemView: View {
+    
+    let orders: OrderType
+    
+    var body: some View {
+        HStack {
+            Image(orders.image)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(25)
+                .frame(width: 50)
+            
+            VStack{
+                Text(orders.name)
+                    .font(.subheadline)
+                Text("45 - 50 minutos")
+                    .font(.system(size: 12))
+                
+            }
+        }
+    }
+}
+
+struct StoresItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        StoresItemView(orders: OrderType(id: 1,
+                                         name: "Monstro Burguer",
+                                         image: "monstro-burger-logo"))
+        .previewLayout(.sizeThatFits)
+        .padding()
+    }
+}
